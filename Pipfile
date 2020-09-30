@@ -1,0 +1,26 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+alembic = "*"
+flask = "*"
+flask-api = "*"
+flask-cors = "*"
+flask-marshmallow = "*"
+flask-migrate = "*"
+flask-script = "*"
+flask-sqlalchemy = "*"
+Jinja2 = "*"
+marshmallow = "*"
+marshmallow-sqlalchemy = "*"
+pymysql = "*"
+python-dotenv = "*"
+requests = "*"
+
+[dev-packages]
+autopep8 = "*"
+
+[requires]
+python_version = "3.7"

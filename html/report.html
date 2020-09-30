@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>LAN Mapper Report</title>
+    </head>
+    <body>
+        <style type="text/css">table{border-collapse:collapse;margin:0 auto}.timestamp{padding-right:10px}.device_name{height:140px;white-space:nowrap}.device_name>div{transform:translate(13px,58px) rotate(315deg);width:20px}.device_name>div>span{border-bottom:1px solid #ccc;padding:0 10px;font-size:10px}.device_cell{border:1px solid gray}</style>
+        <div class="root">
+            <table>
+                <tr class="head_row">
+                    <th class="placeholder"></th>
+                    {% for ownership in data['ownerships'] %}
+                        {% for device in ownership['devices'] %}
+                            <th class="device_name"><div><span>{{device['name']}}</span></div></th>
+                        {% endfor %}
+                    {% endfor %}
+                </tr>
+                {% for record in data['detection_records'] %}
+                    <tr class="content_row">
+                        <td class="timestamp">{{record['created_at']}}</td>
+                        {% for color in record['owner_device_rec'] %}
+                            <td class="device_cell" style="background-color: {{color}}">&nbsp;</td>
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </body>
+</html>
